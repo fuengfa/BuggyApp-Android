@@ -9,37 +9,23 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.profile_layout.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.android.synthetic.main.profile_layout.view.*
 import scb.academy.jinglebell.R
 import scb.academy.jinglebell.activity.helloProfile
-import scb.academy.jinglebell.adapter.CountryAdapter
-import scb.academy.jinglebell.extension.showToast
-import scb.academy.jinglebell.model.Country
-import scb.academy.jinglebell.service.ApiManager
 
 class ProfileFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.profile_layout, container, false)
-    }
+        val  _view = inflater.inflate(R.layout.profile_layout, container, false)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        profile_name.setOnEditorActionListener { v, actionId, event ->
-            if(actionId == EditorInfo.IME_ACTION_DONE){
-
-                Toast.makeText(view.context, "kjscaksldjnaslk", Toast.LENGTH_SHORT).show()
-                true
-            } else {
-                false
-            }
+        _view.loginbutton.setOnClickListener {
+            val intent = Intent(context, helloProfile::class.java)
+            intent.putExtra("value", profile_name.text.toString())
+            startActivity(intent)
         }
-        }
+        return _view
     }
+}
+
+
 
