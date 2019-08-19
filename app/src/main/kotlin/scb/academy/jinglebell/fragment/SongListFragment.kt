@@ -31,11 +31,13 @@ class SongListFragment : Fragment(), OnSongClickListener {
 
     private val songListCallback = object : Callback<SongSearchResult> {
         override fun onFailure(call: Call<SongSearchResult>, t: Throwable) {
+            println("conttext Showtoast")
             context?.showToast("Can not call country list $t")
         }
 
         override fun onResponse(call: Call<SongSearchResult>, response: Response<SongSearchResult>) {
             context?.showToast("Success")
+            songAdapter.submitList(response.body()!!.results)
         }
     }
 
@@ -53,6 +55,7 @@ class SongListFragment : Fragment(), OnSongClickListener {
 
     private fun loadSongs()  {
         ApiManager.artistService.songs().enqueue(songListCallback)
+//        println("hoiiiiiiiii ${ApiManager.artistService.songs().enqueue(songListCallback)}")
     }
 
     override fun onSongClick(song: Song) {

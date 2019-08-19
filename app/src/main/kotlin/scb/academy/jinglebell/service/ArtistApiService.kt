@@ -9,5 +9,5 @@ interface ArtistApiService {
 
     @GET("songlist")
     fun songs(
-        @Query("term") artistName: String? = "taylorswift"): Call<SongSearchResult>
+        @Query("artistName") artistName: String? = "Taylor Swift"): Call<SongSearchResult>
 }

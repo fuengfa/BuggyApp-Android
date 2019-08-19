@@ -24,6 +24,7 @@ class SongAdapter(private val listener: OnSongClickListener)
 
     override fun onBindViewHolder(holder: SongItemViewHolder, position: Int) {
         holder.bind(_songs[position], listener)
+        print(_songs[position].artistName)
     }
 
     override fun getItemCount(): Int {
@@ -36,13 +37,16 @@ class SongAdapter(private val listener: OnSongClickListener)
 
     fun submitList(list: List<Song>) {
         _songs = list
+        println("Listttttttttt ${list.toString()}")
         notifyDataSetChanged()
     }
 
 }
 
 class SongItemViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
-        LayoutInflater.from(parent.context).inflate(R.layout.item_song, parent, false)
+        LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_song,
+                parent, false)
 ) {
 
     private val ivSongArtwork: ImageView = itemView.findViewById(R.id.iv_song_artwork)
