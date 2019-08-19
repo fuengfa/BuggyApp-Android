@@ -24,7 +24,6 @@ class SongAdapter(private val listener: OnSongClickListener)
 
     override fun onBindViewHolder(holder: SongItemViewHolder, position: Int) {
         holder.bind(_songs[position], listener)
-        print(_songs[position].artistName)
     }
 
     override fun getItemCount(): Int {
@@ -55,7 +54,8 @@ class SongItemViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
     private val tvSongPrice: TextView = itemView.findViewById(R.id.tv_song_price)
 
     fun bind(song: Song, listener: OnSongClickListener) {
-        tvSongName.text = song.name
+        tvSongName.text = song.name.toString()
+        println(song.artistName)
         tvSongArtist.text = song.artistName
         tvSongPrice.text = "${song.price} ${song.priceCurrency}"
         ivSongArtwork.setImageUrl(song.artworkUrl)
