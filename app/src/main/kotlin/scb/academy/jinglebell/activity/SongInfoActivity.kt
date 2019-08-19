@@ -36,6 +36,7 @@ class SongInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_song_info)
 
+
         ivSongArtWork = findViewById(R.id.iv_song_artwork)
         tvSongName = findViewById(R.id.tv_song_name)
         tvSongAlbum = findViewById(R.id.tv_song_album)
