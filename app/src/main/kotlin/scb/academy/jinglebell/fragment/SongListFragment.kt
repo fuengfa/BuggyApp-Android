@@ -64,7 +64,7 @@ class SongListFragment : Fragment(), OnSongClickListener {
 
     override fun onSongClick(song: Song) {
         val intent = Intent(context, SongInfoActivity::class.java)
-       intent.putExtra("song", song)
+        intent.putExtra("song", song)
         startActivity(intent)
     }
 }
