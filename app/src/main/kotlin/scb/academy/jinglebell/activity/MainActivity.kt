@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         return@OnNavigationItemSelectedListener when (item.itemId) {
             R.id.action_country_list, R.id.action_song, R.id.action_profile -> {
                 changeFragment(item.itemId)
+                println("Hello")
                 true
             }
 
