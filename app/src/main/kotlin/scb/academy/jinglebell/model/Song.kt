@@ -16,3 +16,4 @@ data class Song(
         @SerializedName("currency") val priceCurrency: String,
         @SerializedName("releaseDate") val releaseDate: String
 ) : Parcelable
+

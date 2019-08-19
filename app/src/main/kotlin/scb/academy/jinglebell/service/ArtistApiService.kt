@@ -8,5 +8,6 @@ import scb.academy.jinglebell.model.SongSearchResult
 interface ArtistApiService {
 
     @GET("songlist")
-    fun songs(@Query("term") artistName: String? = "taylorswift"): Call<SongSearchResult>
+    fun songs(
+        @Query("term") artistName: String? = "taylorswift"): Call<SongSearchResult>
 }
